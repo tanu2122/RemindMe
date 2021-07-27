@@ -29,11 +29,18 @@ const Form = ({inputText, setInputText, inputTime, setInputTime, todos, setTodos
          return dateTime;
          
     }
-    setInterval(() => {
+setInterval(() => {
     currentTime = getDateTime();
     if(currentTime === time)
         {
-            setTodos(todos.filter((el) => el.id !== task.id));
+            setTodos(todos.map((el) => {
+                if(el.Time === currentTime){
+                    return {
+                        ...el, completed: 'true'
+                    }
+                }
+                return el;
+            }));
             toast.success('Task has been successfully completed.')
         }
 }, 1000);
