@@ -29,19 +29,14 @@ const Form = ({inputText, setInputText, inputTime, setInputTime, todos, setTodos
          return dateTime;
          
     }
-    setInterval(function(){
-        currentTime = getDateTime();
-     
-        if(currentTime === time)
+    setInterval(() => {
+    currentTime = getDateTime();
+    if(currentTime === time)
         {
-            toast('You have late taks! If done set as completed...', {
-                        type: 'warning',
-                        autoClose: 30000,
-                        pauseOnHover: false,
-                    });  
+            setTodos(todos.filter((el) => el.id !== task.id));
+            toast.success('Task has been successfully completed.')
         }
-        
-    }, 1000);
+}, 1000);
 
     const inputTimeHandler = (e) => {
             setInputTime(e.target.value);  
