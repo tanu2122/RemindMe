@@ -15,18 +15,29 @@ const Task = ({text, Time, task, todos, setTodos}) => {
         });
     };
     const completeHandler = () => {
-        setTodos(todos.filter((el) => el.id !== task.id));
-        toast('Task has been completed Successfully!', {
-            type: 'success',
-            autoClose: 30000,
-            pauseOnHover: false,
-        });
+        setTodos(todos.map((el) => {
+            if(el.id === task.id){
+                return {
+                    ...el, completed: !el.completed
+                }
+            }            
+            return el;
+            
+        }));
+        if(task.completed == false){
+            toast('Task has been completed Successfully!', {
+                type: 'success',
+                autoClose: 30000,
+                pauseOnHover: false,
+            });
+        }
+        
     };
     
     return (
         <div className="task">
-            <li className="task-item">{text}</li>
-            <li className="task-item">{Time}</li>
+            <li className={`task-item ${task.completed ? "completed" : ''}`}>{text}</li>
+            <li className={`task-item ${task.completed ? "completed" : ''}`}>{Time}</li>
             <button onClick={completeHandler} className="complete-btn"><i className="fas fa-check"></i></button>
             <button onClick={deleteHandler} className="trash-btn"><i className="fas fa-trash"></i></button>
         </div>
