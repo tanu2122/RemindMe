@@ -33,7 +33,7 @@ setInterval(() => {
     currentTime = getDateTime();
     if(currentTime === time)
         {
-            toast.Warning('You have Late Tasks...')
+            toast.warning('You have Late Tasks...')
         }
 }, 1000);
 
