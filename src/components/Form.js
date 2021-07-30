@@ -33,15 +33,7 @@ setInterval(() => {
     currentTime = getDateTime();
     if(currentTime === time)
         {
-            setTodos(todos.map((el) => {
-                if(el.Time === currentTime){
-                    return {
-                        ...el, completed: 'true'
-                    }
-                }
-                return el;
-            }));
-            toast.success('Task has been successfully completed.')
+            toast.Warning('You have Late Tasks...')
         }
 }, 1000);
 
