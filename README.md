@@ -3,10 +3,10 @@
 This project was based on Task reminders, where you can set timeline on your daily tasks and you will get notifications on individual task you set.
 
 # In this project I used:
-React 
-React-toastify
-React states
-JavaScript
+React ,
+React-toastify ,
+React states ,
+JavaScript ,
 CSS
 
 # Preview of applicartion is available on below link
