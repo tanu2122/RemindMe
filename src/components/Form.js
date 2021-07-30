@@ -33,7 +33,11 @@ setInterval(() => {
     currentTime = getDateTime();
     if(currentTime === time)
         {
-            toast.warning('You have Late Tasks...')
+            toast.success("Task has been marked as completed!")  
+            setTodos([
+                ...todos, {text: inputText, Time: time, completed: true, id: Math.random() * 1000}
+            ]);
+            
         }
 }, 1000);
 
